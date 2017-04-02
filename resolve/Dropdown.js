@@ -48,6 +48,8 @@
                     // пометим выбранный элемент как активный
                     target.classList.add(activeClass);
 
+                    this._trigger('activeItemChanged', target);
+
                     // сообщим имя выбранного элемента
                     console.log(`Menu item "${this.getLiText(target)}" has been selected`);
 

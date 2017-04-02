@@ -7,8 +7,16 @@
         //         textContainer: '.text-container'
         //     }
         // }
+
     };
 
-    window.ru.mail.cpf.modules.Dropdown(dropdownParams, null, $('.dd'));
+
+    var dropDown = window.ru.mail.cpf.modules.Dropdown(dropdownParams, null, $('.dd'));
+
+    dropDown._addEventTypes({
+        'activeItemChanged': function(){
+
+        }
+    });
 
 })(window);

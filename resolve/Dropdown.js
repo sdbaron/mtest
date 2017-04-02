@@ -34,6 +34,10 @@
                         // странный случай - клинули в списке, но не нашли нужного элемента списка - тогда ничего не делаем
                         if (!(target = target.closest('li')) || target.closest('ul') != listContainer ) return;
                     }
+
+                    // на задизейбленных элементах ничего не делаем
+                    if (target.matches('[disabled]')) return;
+
                     const activeClass = this._opts.activeListItemClassName;
                     for( let li of listContainer.querySelectorAll('li.' + activeClass)){
                         li.classList.remove(activeClass);
@@ -48,6 +52,14 @@
 
         _Init: function () {
             console.log('_Init вызывается первым');
+            window.addEventListener('click', (event) =>{
+                let target = event.target;
+                if (target != this._elems.listSelector[0] &&
+                    target && target.closest('ul') != this._elems.listContainer[0] )
+                {
+                    this.collapse();
+                }
+            });
         },
 
         getLiText: function (li){

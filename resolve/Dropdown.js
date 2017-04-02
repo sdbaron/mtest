@@ -39,24 +39,35 @@
                     if (target.matches('[disabled]')) return;
 
                     const activeClass = this._opts.activeListItemClassName;
+
+                    // уберем класс-признак активного элемента у предыдущего активного элемента
                     for( let li of listContainer.querySelectorAll('li.' + activeClass)){
                         li.classList.remove(activeClass);
                     }
+
+                    // пометим выбранный элемент как активный
                     target.classList.add(activeClass);
 
+                    // сообщим имя выбранного элемента
                     console.log(`Menu item "${this.getLiText(target)}" has been selected`);
+
+                    // и скроем список
                     this.collapse();
                 }
             }
         },
 
         _Init: function () {
-            console.log('_Init вызывается первым');
+            // console.log('_Init вызывается первым');
+
+            // отследим клики за пределами дропдауна
             window.addEventListener('click', (event) =>{
                 let target = event.target;
-                if (target != this._elems.listSelector[0] &&
-                    target && target.closest('ul') != this._elems.listContainer[0] )
-                {
+
+                // если клик был не на кнопке и не внутри списка...
+                if (target && target != this._elems.listSelector[0]
+                    && target.closest('ul') != this._elems.listContainer[0] ) {
+                    // ... тогда скроем список
                     this.collapse();
                 }
             });

@@ -42,6 +42,7 @@
     background: none;
     }
 
+/* оформление активного элемента списка*/
 .dd li.active,
 .dd li.active a {
     color: crimson;
@@ -51,4 +52,38 @@
 .dd li.active{
     border: 1px solid crimson;
     }
+/* -- */
+
+/* второй вариант оформления активного элемента */
+.dd li.active-alt,
+.dd li.active-alt a {
+    color: green;
+    font-weight: bolder;
+}
+
+.dd li.active-alt{
+    border: 1px solid green;
+}
+/* -- */
+
+
+.messageDemonstratorLabel {
+    display: inline-block;
+}
+.messageDemonstrator {
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #cccccc;
+    padding: 0.3em;
+    min-width: 20em;
+}
+
+.first-dd {
+    float: left;
+    margin-right: 2em;
+}
+
+.second-dd {
+    float: left;
+}
 

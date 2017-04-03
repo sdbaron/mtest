@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Dropdown — тестовое задание</title>
-	<link rel="stylesheet" href="css/dropdown.css" />
+    <meta charset="UTF-8">
+    <title>Dropdown — тестовое задание</title>
+    <link rel="stylesheet" href="css/dropdown.css"/>
 </head>
 <body>
 
+<!-- элемент для отображения выбранного элемента дропдауна -->
+<label class="messageDemonstratorLabel">Last selected list item: <span class="messageDemonstrator">&nbsp;</span></label>
 
-<!-- Верстка дропдауна -->
-<div class="dd">
-	<div>Menu</div>
-	<ul>
-		<li>item 1</li>
-		<li disabled="true">item 2</li>
-		<li><b>item 3</b></li>
-		<li><i><a href="https://e.mail.ru/" target="_blank">item 4</a></i></li>
-	</ul>
+<p>
+
+    <!-- первый дропдаун -->
+<div class="first-dd dd">
+    <div>Menu</div>
+    <ul>
+        <li>item 1</li>
+        <li disabled="true">item 2</li>
+        <li><b>item 3</b></li>
+        <li><i><a href="https://e.mail.ru/" target="_blank">item 4</a></i></li>
+    </ul>
 </div>
-<!-- / Верстка дропдауна -->
 
+<!-- ещё один дропдаун -->
+<div class="second-dd dd">
+    <div>Second Menu</div>
+    <ul>
+        <li>item 2-1</li>
+        <li>item 2-1</li>
+        <li disabled="true"><b>item 2-3</b></li>
+        <li><i><a href="https://e.mail.ru/" target="_blank">item 2-4</a></i></li>
+    </ul>
+</div>
+
+<!-- / дропдауны -->
 
 <!-- Необходимые для работы скрипты -->
 <script src="../js/jquery-1.11.3.min.js"></script>
@@ -30,8 +45,8 @@
 
 <!-- Ваши скрипты -->
 <script src="Dropdown.js"></script>
-<script src="initDropdown.js"></script>
-<!-- TODO -->
+<script src="initDropdowns.js"></script>
+<script src="main.js"></script>
 <!-- / Ваши скрипты -->
 
 </body>

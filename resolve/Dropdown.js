@@ -1,22 +1,25 @@
+/**
+ * Модуль создания конструктора для Dropdown
+ */
 (function (window) {
 
-    var defaultOptions = {
+    const defaultOptions = {
         cssSels: {
             Main: {
                 listContainer: '>ul',
                 listSelector: '>div'
             },
-            button: 'div',
-            list: '>ul'
+            list: '>ul',
+            button: '>div'
         },
-        // класс-переключатель видиммости списка
-        expandClassName : 'expanded',
+        // класс-переключатель видимости списка
+        expandClassName: 'expanded',
 
         // класс активного элемента списка
-        activeListItemClassName : 'active'
+        activeListItemClassName: 'active'
     };
 
-    var dropDownOptions = {
+    const dropDownOptions = {
         _Handlers: {
             //'self', 'dom', 'model', 'set', 'pubsub', 'opts'
             dom: {
@@ -25,14 +28,14 @@
                     this.expand();
                 },
 
-                'click:list': function(event){
+                'click:list': function (event) {
                     // ловим клик на корневом элементе списка и определяем с какого именно элмента всплыло событие
                     let target = event.target;
                     let listContainer = this._elems.listContainer[0];
                     // если клик был не на LI, значит поднимемся до ближайшего LI
                     if (target.tagName != 'li') {
                         // странный случай - клинули в списке, но не нашли нужного элемента списка - тогда ничего не делаем
-                        if (!(target = target.closest('li')) || target.closest('ul') != listContainer ) return;
+                        if (!(target = target.closest('li')) || target.closest('ul') != listContainer) return;
                     }
 
                     // на задизейбленных элементах ничего не делаем
@@ -41,17 +44,18 @@
                     const activeClass = this._opts.activeListItemClassName;
 
                     // уберем класс-признак активного элемента у предыдущего активного элемента
-                    for( let li of listContainer.querySelectorAll('li.' + activeClass)){
+                    for (let li of listContainer.querySelectorAll('li.' + activeClass)) {
                         li.classList.remove(activeClass);
                     }
 
                     // пометим выбранный элемент как активный
                     target.classList.add(activeClass);
 
-                    this._trigger('activeItemChanged', target);
+                    let targetText = this.getLiText(target);
+                    this._trigger('activeItemChanged', targetText);
 
                     // сообщим имя выбранного элемента
-                    console.log(`Menu item "${this.getLiText(target)}" has been selected`);
+                    console.log(`Menu item "${targetText}" has been selected`);
 
                     // и скроем список
                     this.collapse();
@@ -60,22 +64,24 @@
         },
 
         _Init: function () {
-            // console.log('_Init вызывается первым');
-
             // отследим клики за пределами дропдауна
-            window.addEventListener('click', (event) =>{
+            window.addEventListener('click', (event) => {
                 let target = event.target;
-
                 // если клик был не на кнопке и не внутри списка...
                 if (target && target != this._elems.listSelector[0]
-                    && target.closest('ul') != this._elems.listContainer[0] ) {
+                    && target.closest('ul') != this._elems.listContainer[0]) {
                     // ... тогда скроем список
                     this.collapse();
                 }
             });
         },
 
-        getLiText: function (li){
+        /**
+         * возвращает наименование элемента меню
+         * @param {HTMLElement} li Элемент меню
+         * @returns {string} Наименование элемента
+         */
+        getLiText: function (li) {
             return li.innerText;
         },
 
@@ -97,9 +103,7 @@
 
     };
 
-    var Dropdown = window.ru.mail.cpf.Basic.getView( dropDownOptions, defaultOptions, null, 'Dropdown');
-
-    // Публикуем ссылку на конструктор
-    window.getNameSpace('ru.mail.cpf.modules').Dropdown = Dropdown;
+    const Constructors = window.getNameSpace('ru.mail.cpf.Basic.Constructors');
+    const Dropdown = Constructors.getView(dropDownOptions, defaultOptions, null, 'Dropdown');
 
 })(window);

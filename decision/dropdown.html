@@ -8,11 +8,17 @@
 <body>
 
 <!-- элемент для отображения выбранного элемента дропдауна -->
-<label class="messageDemonstratorLabel">Last selected list item: <span class="messageDemonstrator">&nbsp;</span></label>
+<label class="message-demonstrator-label">Last selected list item: <span class="message-demonstrator">&nbsp;</span></label>
 
-<p>
+<!-- кнопки управления состоянием первого дроплдауна -->
+<div class="state-buttons">
+    <p>Состояние первого дропдауна</p>
+    <button class="save-state">Сохранить состояние</button>
+    <button class="restore-state">Восстановить состояние</button>
+</div>
+<!-- / кнопки управления состоянием первого дроплдауна -->
 
-    <!-- первый дропдаун -->
+<!-- первый дропдаун -->
 <div class="first-dd dd">
     <div>Menu</div>
     <ul>
@@ -22,6 +28,7 @@
         <li><i><a href="https://e.mail.ru/" target="_blank">item 4</a></i></li>
     </ul>
 </div>
+<!-- / первый дропдаун -->
 
 <!-- ещё один дропдаун -->
 <div class="second-dd dd">
@@ -33,8 +40,7 @@
         <li><i><a href="https://e.mail.ru/" target="_blank">item 2-4</a></i></li>
     </ul>
 </div>
-
-<!-- / дропдауны -->
+<!-- / ещё один дропдаун -->
 
 <!-- Необходимые для работы скрипты -->
 <script src="../js/jquery-1.11.3.min.js"></script>

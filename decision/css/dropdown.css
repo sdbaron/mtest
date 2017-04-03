@@ -1,5 +1,6 @@
 .dd {
     display: inline-block;
+    margin-top: 1em;
     }
 
 .dd div {
@@ -67,10 +68,11 @@
 /* -- */
 
 
-.messageDemonstratorLabel {
+.message-demonstrator-label {
     display: inline-block;
+    margin-bottom: 1em;
 }
-.messageDemonstrator {
+.message-demonstrator {
     display: inline-block;
     vertical-align: middle;
     border: 1px solid #cccccc;
@@ -87,3 +89,16 @@
     float: left;
 }
 
+.state-buttons{
+    float: none;
+    position: relative;
+    clear: both;
+}
+
+.sate-buttons p {
+    margin: 0.5em 0;
+}
+
+.state-buttons .restore-state{
+    margin: 0 0 0 1em;
+}

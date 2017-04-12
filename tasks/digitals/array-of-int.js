@@ -13,6 +13,7 @@ function canRepresent(value, arr) {
         }
     }
 
+
     return null;
 
     function getAvailableIndexes(value){

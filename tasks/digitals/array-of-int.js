@@ -31,7 +31,7 @@ function canRepresent(value, arr) {
         let v = value;
         let a = [];
         for (let i = arr.length; --i >= 0 && v;){
-            if (availableIndexes.indexOf(i) == -1 ) continue;
+            if (availableIndexes.indexOf(i) === -1 ) continue;
             const d = arr[i];
             if (d > v) continue;
             a.push(d);
@@ -42,10 +42,12 @@ function canRepresent(value, arr) {
 
 }
 
-console.log('start');
+export default canRepresent;
 
-let r = canRepresent(10, arr);
-console.log( r ? `можно: ${r}` : 'нельзя разложить 10');
-
-r = canRepresent(5, arr);
-console.log( r ? `можно: ${r}` : 'нельзя разложить 5');
+// console.log('start');
+//
+// let r = canRepresent(10, arr);
+// console.log( r ? `можно: ${r}` : 'нельзя разложить 10');
+//
+// r = canRepresent(5, arr);
+// console.log( r ? `можно: ${r}` : 'нельзя разложить 5');

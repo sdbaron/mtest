@@ -1,0 +1,46 @@
+{
+  "name": "mtest",
+  "version": "1.0.0",
+  "description": "Some test tasks",
+  "main": "pakage.json",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {
+    "jasmine": "^2.6.0",
+    "karma": "^1.6.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-mocha-reporter": "^2.2.3"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "jasmine": "^2.6.0",
+    "karma": "^1.6.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.3",
+    "karma-webpack": "^2.0.3",
+    "rewire-webpack": "^1.0.1",
+    "webpack": "^2.4.1"
+  },
+  "scripts": {
+    "test:jasmine": "babel-node spec/run.js",
+    "test:watch": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdbaron/mtest.git"
+  },
+  "author": "baron",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sdbaron/mtest/issues"
+  },
+  "homepage": "https://github.com/sdbaron/mtest#readme"
+}

@@ -8,6 +8,7 @@ function getStetByStepPromise(adresses) {
     }, Promise.resolve('success'));
 }
 
+// проверка работы
 getStetByStepPromise(addresses).then( () => createPromise(addresses[0]) );
 
 function createPromise(addr){
@@ -16,7 +17,7 @@ function createPromise(addr){
             let startTime = new Date();
             console.log(`start download url ${addr} at ${startTime.toISOString()}`);
             xhr.open('GET', addr);
-            xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://localhost:63342');
+            //xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://localhost:63342');
             xhr.timeout = 10000;
             xhr.onload = function () {
                 let finishTime = new Date();

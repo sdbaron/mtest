@@ -1,4 +1,4 @@
-const addresses = ['http://yandex.ru', '/test/tasks/promises/img/1.jpg', '/test/tasks/promises/img/2.jpg'];
+const addresses = ['http://yandex.ru', '/test2/tasks/promises/img/1.jpg', '/test2/tasks/promises/img/2.jpg'];
 
 function getStetByStepPromise(adresses) {
     return adresses.reduce( (prevPromise, addr) => {
